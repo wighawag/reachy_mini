@@ -1,0 +1,11 @@
+# /etc/udev/rules.d/50-reachy.rules
+ACTION=="add", SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d3", \
+  TAG+="systemd", ENV{SYSTEMD_USER}="1000", ENV{SYSTEMD_USER_WANTS}="reachy-mini-daemon.service"
+
+
+# then execute
+
+```
+sudo udevadm control --reload-rules
+sudo udevadm trigger --attr-match=idVendor=1a86 --attr-match=idProduct=55d3
+```

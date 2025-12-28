@@ -1,0 +1,15 @@
+#~/.config/systemd/user/reachy-conversation-app.service
+[Unit]
+Description=Start Reachy Mini Conversation App
+After=reachy-mini-daemon.service
+Requires=reachy-mini-daemon.service
+
+[Service]
+Type=oneshot
+ExecStart=%h/dev/github.com/pollen-robotics/reachy_mini/scripts/start-conversation-app.sh
+RemainAfterExit=yes
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

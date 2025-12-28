@@ -1,0 +1,14 @@
+[Unit]
+Description=Start Reachy Mini Conversation App
+After=reachy-mini-daemon.service
+Requires=reachy-mini-daemon.service
+
+[Service]
+Type=oneshot
+User=wighawag
+Group=wighawag
+ExecStart=/home/wighawag/dev/github.com/pollen-robotics/reachy_mini/scripts/start-conversation-app.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
